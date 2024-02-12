@@ -19,7 +19,7 @@
     "paths": {
       "@lib/*": ["lib/*"],
       "@modules/*": ["modules/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["src/pages/*"]
     },
     "plugins": [
       {

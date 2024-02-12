@@ -1,10 +1,11 @@
 import { headers } from "next/headers"
 import { Suspense } from "react"
-
+import logo from '../../../../../public/logo.png'
 import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import Image from "next/image"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
@@ -24,7 +25,11 @@ export default async function Nav() {
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              <Image src={logo}
+                     alt="Logo"
+                      height={58} width={80}
+                      className="w-20"
+                      priority={true} />
             </LocalizedClientLink>
           </div>
 
@@ -36,14 +41,14 @@ export default async function Nav() {
                   href="/search"
                   scroll={false}
                 >
-                  Search
+                  Pretraži
                 </LocalizedClientLink>
               )}
               <LocalizedClientLink
                 className="hover:text-ui-fg-base"
                 href="/account"
               >
-                Account
+                Nalog
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -52,7 +57,7 @@ export default async function Nav() {
                   className="hover:text-ui-fg-base flex gap-2"
                   href="/cart"
                 >
-                  Cart (0)
+                  Košarica (0)
                 </LocalizedClientLink>
               }
             >
