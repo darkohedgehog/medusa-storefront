@@ -9,8 +9,8 @@ import { getRegion } from "app/actions"
 import { headers } from "next/headers"
 
 export const metadata: Metadata = {
-  title: "Addresses",
-  description: "View your addresses",
+  title: "Adrese",
+  description: "Vidi svoje adrese",
 }
 
 export default async function Addresses() {
@@ -26,7 +26,7 @@ export default async function Addresses() {
   return (
     <div className="w-full">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Shipping Addresses</h1>
+        <h1 className="text-2xl-semi">Adresa za dostavu</h1>
         <p className="text-base-regular">
           View and update your shipping addresses, you can add as many as you
           like. Saving your addresses will make them available during checkout.

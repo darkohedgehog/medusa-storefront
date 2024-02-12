@@ -9,8 +9,8 @@ import { CartWithCheckoutStep } from "types/global"
 import { getCustomer } from "@lib/data"
 
 export const metadata: Metadata = {
-  title: "Cart",
-  description: "View your cart",
+  title: "Košarica",
+  description: "Vidi košaricu",
 }
 
 const fetchCart = async () => {
