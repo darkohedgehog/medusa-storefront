@@ -56,20 +56,17 @@ const NewArrival = () => {
 
   useEffect(() => {
     // Funkcija za dohvat proizvoda sa Medusa backend-a
-    fetch(`http://localhost:9000/store/products?`, {
+    fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products?`, {
       credentials: "include",
     })
     .then(response => response.json())
     .then(data => {
-     console.log(data); 
+     //console.log(data); 
      setProducts(data.products || []); // Dodao sam || [] kao fallback
     })
 
   }, []);
 
- useEffect(() => {
-    console.log(products); // Ovo će se pokrenuti svaki put kada se `products` promeni
-  }, [products]);
   
 
  
@@ -80,7 +77,7 @@ const NewArrival = () => {
     <Slider {...settings}>
       {products?.map((product) => (
         <div key={product.id} className='px-2'>
-          <div className='rounded overflow-hidden shadow-lg'>
+          <div className='rounded-xl overflow-hidden shadow-lg'>
           <Image src={product.thumbnail as string}
                alt={product.title}
                width={500}

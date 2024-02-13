@@ -28,7 +28,7 @@ export default function ProductRail({
       </div>
       <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
         {products &&
-          products.map((product) => (
+          products.slice(0, 3).map((product) => ( // Ovde se dodaje .slice(0, 3)
             <li key={product.id}>
               <ProductPreview
                 productPreview={product}
@@ -40,4 +40,5 @@ export default function ProductRail({
       </ul>
     </div>
   )
+  
 }
