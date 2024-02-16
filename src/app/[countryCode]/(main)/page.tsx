@@ -9,6 +9,7 @@ import { Hero } from "@modules/home/components/hero"
 import NewArrival from "@modules/home/components/NewArrivals"
 import InfoBanner from "@modules/home/components/InfoBanner"
 import CategoryBanner from "@modules/home/components/CategoryBanner"
+import HomeBanner from "@modules/home/components/hero/HomeBanner"
 
 
 
@@ -77,6 +78,7 @@ export default async function Home({
       <Hero />
       <NewArrival />
       <InfoBanner />
+      <HomeBanner />
       <CategoryBanner />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
