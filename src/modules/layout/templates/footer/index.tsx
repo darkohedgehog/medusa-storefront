@@ -31,14 +31,14 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              Živić-Elektro
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
+                  Kategorije
                 </span>
                 <ul className="grid grid-cols-1 gap-2">
                   {productCategories?.slice(0, 6).map((c) => {
@@ -91,7 +91,7 @@ export default async function Footer() {
             {productCollections && productCollections.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
+                  Kolekcije
                 </span>
                 <ul
                   className={clx(
@@ -153,7 +153,7 @@ export default async function Footer() {
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+            © {new Date().getFullYear()} Živić-Elektro. Sva prava zadržana.
           </Text>
           <MedusaCTA />
         </div>
