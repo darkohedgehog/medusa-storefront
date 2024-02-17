@@ -5,7 +5,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 
 const InfoBanner = () => {
   return (
-    <div className="h-20 bg-white absolute left-1/2 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 pt-11">
+    <div className="h-20 bg-transparent absolute left-1/2 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 pt-11">
     <div className="flex items-center gap-5 w-60">
       <RiCustomerService2Line className="text-designColor w-8 h-8" />
       <div>

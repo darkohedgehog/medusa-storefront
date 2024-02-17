@@ -1,435 +1,65 @@
-"use client"
-import Container from "@modules/common/components/Container";
-import Slider from "react-slick";
-import NextArrow from "@modules/common/components/NextArrow";
-import PrevArrow from "@modules/common/components/PrevArrow";
-import React, { useEffect, useState } from 'react';
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import Status from '../../../../public/assets/status_metalka.jpg'
+import Premijer from '../../../../public/assets/premijer_plus_metalka.jpg'
+import Emporio from '../../../../public/assets/emporio_metalka.jpeg'
+import SetQOG from '../../../../public/assets/set_q_og_metalka.jpg'
+import Kombo from '../../../../public/assets/kombo_metalka.jpg'
+import Kutija from '../../../../public/assets/instalacione_kutije_metalka.jpg'
+import Pribor from '../../../../public/assets/elektroinstalacioni_pribor_metalka.jpg'
+import Zvono from '../../../../public/assets/art-805.jpg'
+import Kabel from '../../../../public/assets/Prnosne-nove2-1.jpg'
+import Sklopka from '../../../../public/assets/ms-sklopka.jpg'
+import MiniOG from '../../../../public/assets/mini_og_metalka.jpg'
+import Razdjelnik from '../../../../public/assets/razvodne_table_metalka.jpg'
+import { CategoryItem } from './Interfaces';
 
-// Definicija interfejsa za proizvod
-interface Product {
-  id: string;
-  title: string;
-  thumbnail: string; // Pretpostavka je da svaki proizvod ima thumbnail
-}
 
-const CategoryBanner = () => {
-  const [products, setProducts] = useState<Product[]>([]); // Promenljiva stanja za proizvode
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1025,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 769,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-    ],
-  };
 
-  useEffect(() => {
-    // Ovde ide fetch zahtev ili drugi način dohvatanja podataka. Prikaz kategorije proizvoda
-    fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/product-categories?handle=merch`, {
-      credentials: "include",
-    })
-    .then((response) => response.json())
-    .then(({ product_categories }) => {
-      console.log(product_categories.length)
-    })
-    
-    const data = {
-      "id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-      "created_at": "2024-02-02T20:52:43.818Z",
-      "updated_at": "2024-02-02T20:52:43.818Z",
-      "deleted_at": null,
-      "title": "Merch",
-      "handle": "merch",
-      "metadata": null,
-      "products": [
-        {
-          "id": "prod_01HNNSGQGBCRJ2VSG9TKA4Z62S",
-          "created_at": "2024-02-02T20:52:44.139Z",
-          "updated_at": "2024-02-02T20:52:44.139Z",
-          "deleted_at": null,
-          "title": "Medusa Coffee Mug",
-          "subtitle": null,
-          "description": "Every programmer's best friend.",
-          "handle": "coffee-mug",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/coffee-mug.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        },
-        {
-          "id": "prod_01HNNSGQG7HWBC986BWTMFKXCP",
-          "created_at": "2024-02-02T20:52:44.120Z",
-          "updated_at": "2024-02-02T20:52:44.120Z",
-          "deleted_at": null,
-          "title": "Medusa Hoodie",
-          "subtitle": null,
-          "description": "Reimagine the feeling of a classic hoodie. With our cotton hoodie, everyday essentials no longer have to be ordinary.",
-          "handle": "hoodie",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/black_hoodie_front.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        },
-        {
-          "id": "prod_01HNNSGQGASNB7Z2QHX01Y5EYX",
-          "created_at": "2024-02-02T20:52:44.137Z",
-          "updated_at": "2024-02-02T20:52:44.137Z",
-          "deleted_at": null,
-          "title": "Medusa Longsleeve",
-          "subtitle": null,
-          "description": "Reimagine the feeling of a classic longsleeve. With our cotton longsleeve, everyday essentials no longer have to be ordinary.",
-          "handle": "longsleeve",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/ls-black-front.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        },
-        {
-          "id": "prod_01HNNSGQGBCPQ3Q7BWD4M30PFR",
-          "created_at": "2024-02-02T20:52:44.116Z",
-          "updated_at": "2024-02-02T20:52:44.116Z",
-          "deleted_at": null,
-          "title": "Medusa T-Shirt",
-          "subtitle": null,
-          "description": "Reimagine the feeling of a classic T-shirt. With our cotton T-shirts, everyday essentials no longer have to be ordinary.",
-          "handle": "medusa-t-shirt",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/tee-black-front.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        },
-        {
-          "id": "prod_01HNNSGQKR6139Q4EXN7ZCF4NK",
-          "created_at": "2024-02-02T20:52:44.260Z",
-          "updated_at": "2024-02-02T20:52:44.260Z",
-          "deleted_at": null,
-          "title": "Medusa Shorts",
-          "subtitle": null,
-          "description": "Reimagine the feeling of classic shorts. With our cotton shorts, everyday essentials no longer have to be ordinary.",
-          "handle": "shorts",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/shorts-vintage-front.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        },
-        {
-          "id": "prod_01HNNSGQGCNQC3FQ6EJD190JNY",
-          "created_at": "2024-02-02T20:52:44.128Z",
-          "updated_at": "2024-02-02T20:52:44.128Z",
-          "deleted_at": null,
-          "title": "Medusa Sweatpants",
-          "subtitle": null,
-          "description": "Reimagine the feeling of classic sweatpants. With our cotton sweatpants, everyday essentials no longer have to be ordinary.",
-          "handle": "sweatpants",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatpants-gray-front.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        },
-        {
-          "id": "prod_01HNNSGQG9Z0AYH552KBBE6G3C",
-          "created_at": "2024-02-02T20:52:44.120Z",
-          "updated_at": "2024-02-02T20:52:44.120Z",
-          "deleted_at": null,
-          "title": "Medusa Sweatshirt",
-          "subtitle": null,
-          "description": "Reimagine the feeling of a classic sweatshirt. With our cotton sweatshirt, everyday essentials no longer have to be ordinary.",
-          "handle": "sweatshirt",
-          "is_giftcard": false,
-          "status": "published",
-          "thumbnail": "https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-front.png",
-          "weight": 400,
-          "length": null,
-          "height": null,
-          "width": null,
-          "hs_code": null,
-          "origin_country": null,
-          "mid_code": null,
-          "material": null,
-          "collection_id": "pcol_01HNNSGQ5DDMWNBFHRP99TN9TJ",
-          "type_id": null,
-          "discountable": true,
-          "external_id": null,
-          "metadata": null,
-          "profiles": [
-            {
-              "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-              "created_at": "2024-02-02T20:37:55.312Z",
-              "updated_at": "2024-02-02T20:37:55.312Z",
-              "deleted_at": null,
-              "name": "Default Shipping Profile",
-              "type": "default",
-              "metadata": null
-            }
-          ],
-          "profile": {
-            "id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3",
-            "created_at": "2024-02-02T20:37:55.312Z",
-            "updated_at": "2024-02-02T20:37:55.312Z",
-            "deleted_at": null,
-            "name": "Default Shipping Profile",
-            "type": "default",
-            "metadata": null
-          },
-          "profile_id": "sp_01HNNRNKG9G1MBMHCA01PS6NC3"
-        }
-      ]
-    };
-    const fetchedProducts = data.products.map(product => ({
-      id: product.id,
-      title: product.title,
-      thumbnail: product.thumbnail,
-    }));
-    setProducts(fetchedProducts);
-  }, []);
-
-  return (
-    <Container className="mt-60">
-      <Slider {...settings}>
-        {products.map((product) => (
-          <div key={product.id} className='px-2'>
-            <div className='rounded-xl overflow-hidden shadow-lg'>
-              <Image src={product.thumbnail}
-                     alt={product.title}
-                     width={500}
+// Definisanje kategorija
+const categories: CategoryItem[] = [
+    { name: 'Status', imageSrc: Status, href: '/categories/status' },
+    { name: 'Premijer+', imageSrc: Premijer, href: '/categories/premijer' },
+    { name: 'Emporio', imageSrc: Emporio, href: '/categories/emporio' },
+    { name: 'Set-Q OG', imageSrc: SetQOG, href: '/categories/set-q' },
+    { name: 'Mini-OG', imageSrc: MiniOG, href: '/categories/mini-og' },
+    { name: 'Radjelni ormari', imageSrc: Razdjelnik, href: '/categories/razdjelni-ormari' },
+    { name: 'Modularni program', imageSrc: Kombo, href: '/categories/kombo' },
+    { name: 'Instalacione kutije', imageSrc: Kutija, href: '/categories/kutija' },
+    { name: 'Elektroinstalacioni pribor', imageSrc: Pribor, href: '/categories/pribor' },
+    { name: 'Produžni kabeli', imageSrc: Kabel, href: '/categories/kabel' },
+    { name: 'Kućna zvona', imageSrc: Zvono, href: '/categories/zvono' },
+    { name: 'MS sklopke', imageSrc: Sklopka, href: '/categories/sklopka' },
+  ];
+  
+  const CategoryBanner: React.FC = () => {
+    return (
+        <>
+        <h3 className='grid align-baseline text-left text-2xl ml-7 my-10'>Izaberi kategoriju</h3>
+      <div className="grid grid-cols-3 gap-5 pt-10 mx-4">
+        {categories.map((category) => (
+          <Link key={category.name}
+                href={category.href}
+                passHref
+                className="block relative hover:brightness-125 hover:scale-105 transition duration-300">
+            
+              <Image src={category.imageSrc} 
+                     alt={category.name} 
+                     width={500} 
                      height={500}
-                     className='w-full'
-                     priority={true}
-              />
-              <div className='px-6 py-4'>
-                <div className='font-bold text-xl mb-2 mx-auto'>{product.title}</div>
+                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                     priority={false}
+                     className='object-cover rounded-xl' />
+              <div 
+                 className="absolute bottom-0 left-0 bg-black bg-opacity-50 w-full text-white text-center py-2 rounded-xl">{category.name}
               </div>
-            </div>
-          </div>
+            
+          </Link>
         ))}
-      </Slider>
-    </Container>
-  );
-};
-
-export default CategoryBanner;
+      </div>
+      </>
+    );
+  };
+  
+  export default CategoryBanner;
