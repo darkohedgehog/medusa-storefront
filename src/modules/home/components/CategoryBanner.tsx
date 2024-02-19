@@ -19,18 +19,18 @@ import { CategoryItem } from './Interfaces';
 
 // Definisanje kategorija
 const categories: CategoryItem[] = [
-    { name: 'Status', imageSrc: Status, href: '/categories/status' },
-    { name: 'Premijer+', imageSrc: Premijer, href: '/categories/premijer' },
-    { name: 'Emporio', imageSrc: Emporio, href: '/categories/emporio' },
-    { name: 'Set-Q OG', imageSrc: SetQOG, href: '/categories/set-q' },
-    { name: 'Mini-OG', imageSrc: MiniOG, href: '/categories/mini-og' },
-    { name: 'Radjelni ormari', imageSrc: Razdjelnik, href: '/categories/razdjelni-ormari' },
-    { name: 'Modularni program', imageSrc: Kombo, href: '/categories/kombo' },
-    { name: 'Instalacione kutije', imageSrc: Kutija, href: '/categories/kutija' },
-    { name: 'Elektroinstalacioni pribor', imageSrc: Pribor, href: '/categories/pribor' },
-    { name: 'Produžni kabeli', imageSrc: Kabel, href: '/categories/kabel' },
-    { name: 'Kućna zvona', imageSrc: Zvono, href: '/categories/zvono' },
-    { name: 'MS sklopke', imageSrc: Sklopka, href: '/categories/sklopka' },
+    { name: 'Status', imageSrc: Status, href: '/collections/status' },
+    { name: 'Premijer+', imageSrc: Premijer, href: '/collections/premijer' },
+    { name: 'Emporio', imageSrc: Emporio, href: '/collections/emporio' },
+    { name: 'Set-Q OG', imageSrc: SetQOG, href: '/collections/set-q' },
+    { name: 'Mini-OG', imageSrc: MiniOG, href: '/collections/mini-og' },
+    { name: 'Radjelni ormari', imageSrc: Razdjelnik, href: '/collections/razdjelni-ormari' },
+    { name: 'Modularni program', imageSrc: Kombo, href: '/collections/kombo' },
+    { name: 'Instalacione kutije', imageSrc: Kutija, href: '/collections/kutija' },
+    { name: 'Elektroinstalacioni pribor', imageSrc: Pribor, href: '/collections/pribor' },
+    { name: 'Produžni kabeli', imageSrc: Kabel, href: '/collections/kabel' },
+    { name: 'Kućna zvona', imageSrc: Zvono, href: '/collections/zvono' },
+    { name: 'MS sklopke', imageSrc: Sklopka, href: '/collections/sklopka' },
   ];
   
   const CategoryBanner: React.FC = () => {
