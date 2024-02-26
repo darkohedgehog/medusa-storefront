@@ -52,7 +52,7 @@ const getMedusaHeaders = (tags: string[] = []) => {
 
 // Cart actions
 export async function createCart(data = {}) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .create(data, headers)
@@ -64,7 +64,7 @@ export async function createCart(data = {}) {
 }
 
 export async function updateCart(cartId: string, data: StorePostCartsCartReq) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .update(cartId, data, headers)
@@ -73,7 +73,7 @@ export async function updateCart(cartId: string, data: StorePostCartsCartReq) {
 }
 
 export async function getCart(cartId: string) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .retrieve(cartId, headers)
@@ -93,7 +93,7 @@ export async function addItem({
   variantId: string
   quantity: number
 }) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts.lineItems
     .create(cartId, { variant_id: variantId, quantity }, headers)
@@ -113,7 +113,7 @@ export async function updateItem({
   lineId: string
   quantity: number
 }) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts.lineItems
     .update(cartId, lineId, { quantity }, headers)
@@ -128,7 +128,7 @@ export async function removeItem({
   cartId: string
   lineId: string
 }) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts.lineItems
     .delete(cartId, lineId, headers)
@@ -140,7 +140,7 @@ export async function removeItem({
 }
 
 export async function deleteDiscount(cartId: string, code: string) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .deleteDiscount(cartId, code, headers)
@@ -152,7 +152,7 @@ export async function deleteDiscount(cartId: string, code: string) {
 }
 
 export async function createPaymentSessions(cartId: string) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .createPaymentSessions(cartId, headers)
@@ -170,7 +170,7 @@ export async function setPaymentSession({
   cartId: string
   providerId: string
 }) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .setPaymentSession(cartId, { provider_id: providerId }, headers)
@@ -179,7 +179,7 @@ export async function setPaymentSession({
 }
 
 export async function completeCart(cartId: string) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .complete(cartId, headers)
@@ -189,7 +189,7 @@ export async function completeCart(cartId: string) {
 
 // Order actions
 export async function retrieveOrder(id: string) {
-  const headers = getMedusaHeaders(["order"])
+  const headers = getMedusaHeaders(["Narudžba"])
 
   return medusaClient.orders
     .retrieve(id, headers)
@@ -202,7 +202,7 @@ export async function listShippingMethods(
   regionId: string,
   productIds?: string[]
 ) {
-  const headers = getMedusaHeaders(["shipping"])
+  const headers = getMedusaHeaders(["Dostava"])
 
   const product_ids = productIds?.join(",")
 
@@ -228,7 +228,7 @@ export async function addShippingMethod({
   cartId: string
   shippingMethodId: string
 }) {
-  const headers = getMedusaHeaders(["cart"])
+  const headers = getMedusaHeaders(["Košarica"])
 
   return medusaClient.carts
     .addShippingMethod(cartId, { option_id: shippingMethodId }, headers)
@@ -249,7 +249,7 @@ export async function getToken(credentials: StorePostAuthReq) {
       return access_token
     })
     .catch((err) => {
-      throw new Error("Wrong email or password.")
+      throw new Error("Pogrešan e-mail ili lozinka.")
     })
 }
 
@@ -273,7 +273,7 @@ export async function getSession() {
 
 // Customer actions
 export async function getCustomer() {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers
     .retrieve(headers)
@@ -282,7 +282,7 @@ export async function getCustomer() {
 }
 
 export async function createCustomer(data: StorePostCustomersReq) {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers
     .create(data, headers)
@@ -291,7 +291,7 @@ export async function createCustomer(data: StorePostCustomersReq) {
 }
 
 export async function updateCustomer(data: StorePostCustomersCustomerReq) {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers
     .update(data, headers)
@@ -302,7 +302,7 @@ export async function updateCustomer(data: StorePostCustomersCustomerReq) {
 export async function addShippingAddress(
   data: StorePostCustomersCustomerAddressesReq
 ) {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers.addresses
     .addAddress(data, headers)
@@ -311,7 +311,7 @@ export async function addShippingAddress(
 }
 
 export async function deleteShippingAddress(addressId: string) {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers.addresses
     .deleteAddress(addressId, headers)
@@ -323,7 +323,7 @@ export async function updateShippingAddress(
   addressId: string,
   data: StorePostCustomersCustomerAddressesAddressReq
 ) {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers.addresses
     .updateAddress(addressId, data, headers)
@@ -335,7 +335,7 @@ export async function listCustomerOrders(
   limit: number = 10,
   offset: number = 0
 ) {
-  const headers = getMedusaHeaders(["customer"])
+  const headers = getMedusaHeaders(["Kupac"])
 
   return medusaClient.customers
     .listOrders({ limit, offset }, headers)
