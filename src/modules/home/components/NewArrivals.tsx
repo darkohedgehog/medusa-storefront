@@ -86,7 +86,7 @@ const NewArrival = () => {
                priority={true}
                />
             <div className='px-6 py-4'>
-              <div className='font-bold text-xl mb-2 mx-auto'>{product.title}</div>
+              <div className='font-semibold text-md mb-4 mx-auto'>{product.title}</div>
              
             </div>
           </div>
