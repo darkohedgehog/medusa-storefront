@@ -37,12 +37,12 @@ const categories: CategoryItem[] = [
     return (
         <>
         <h3 className='grid align-baseline text-left text-2xl ml-7 my-10'>Izaberi kategoriju</h3>
-      <div className="grid grid-cols-3 gap-5 pt-10 mx-4">
+      <div className="grid grid-cols-6 gap-x-4 gap-y-6 pt-10 mx-4 px-4">
         {categories.map((category) => (
           <Link key={category.name}
                 href={category.href}
                 passHref
-                className="block relative hover:brightness-125 hover:scale-105 transition duration-300">
+                className="block relative hover:brightness-110 hover:scale-105 transition duration-300">
             
               <Image src={category.imageSrc} 
                      alt={category.name} 
@@ -52,7 +52,7 @@ const categories: CategoryItem[] = [
                      priority={false}
                      className='object-cover rounded-xl' />
               <div 
-                 className="absolute bottom-0 left-0 bg-black bg-opacity-50 w-full text-white text-center py-2 rounded-xl">{category.name}
+                 className="absolute bottom-0 bg-black bg-opacity-20 w-full text-white text-center py-2 rounded-xl">{category.name}
               </div>
             
           </Link>
