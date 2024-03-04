@@ -85,7 +85,7 @@ const NewArrival = () => {
                className='w-full'
                priority={true}
                />
-            <div className='px-6 py-4'>
+            <div className='px-6 py-4 min-h-[6rem]'>
               <div className='font-semibold text-md mb-4 mx-auto'>{product.title}</div>
              
             </div>
