@@ -81,7 +81,7 @@ const CartDropdown = ({
           <LocalizedClientLink
             className="hover:text-ui-fg-base"
             href="/cart"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >{`Košarica (${totalItems})`}</LocalizedClientLink>
         </Popover.Button>
         <Transition
           show={cartDropdownOpen}
