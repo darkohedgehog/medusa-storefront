@@ -55,7 +55,7 @@ const NewArrival = () => {
   };
 
   useEffect(() => {
-    const collectionId = 'pcol_01HPHYV4CG516B09MMZC4NRJK4'; // ID tvoje kolekcije "status"
+    const collectionId = 'pcol_01HPHYV4CG516B09MMZC4NRJK4'; // ID kolekcije "status"
     // Formatiranje collection_id kao niza u query string-u
     const queryString = `collection_id[]=${collectionId}`;
   
