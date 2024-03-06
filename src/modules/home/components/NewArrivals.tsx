@@ -55,17 +55,24 @@ const NewArrival = () => {
   };
 
   useEffect(() => {
-    // Funkcija za dohvat proizvoda sa Medusa backend-a
-    fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products?`, {
+    const collectionId = 'pcol_01HPHYV4CG516B09MMZC4NRJK4'; // ID tvoje kolekcije "status"
+    // Formatiranje collection_id kao niza u query string-u
+    const queryString = `collection_id[]=${collectionId}`;
+  
+    fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products?${queryString}`, {
       credentials: "include",
     })
     .then(response => response.json())
     .then(data => {
-     //console.log(data); 
-     setProducts(data.products || []); // Dodao sam || [] kao fallback
+      setProducts(data.products || []);
     })
-
+    .catch(error => {
+      console.error('Greška prilikom dohvatanja proizvoda:', error);
+    });
   }, []);
+  
+  
+  
 
   
 
