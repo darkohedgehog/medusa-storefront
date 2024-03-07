@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 interface Product {
@@ -48,11 +49,19 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
             width={500} 
             height={200} />
         {product.description && <p>{product.description}</p>}
+        <div className='flex items-center justify-center gap-x-32 mx-auto'>
         <button 
          onClick={onClose} 
          className='flex items-center justify-center mt-2 outline-none cursor-pointer w-20 h-10 rounded-3xl border-2 border-solid transition-all ease-in text-sm font-semibold text-[#606060] shadow-sm bg-button-gradient hover:shadow-custom-normal active:shadow-custom-active-focus focus:shadow-custom-active-focus'>
           Zatvori
         </button>
+        <Link href={`/collections/merch`}>
+          <button 
+          className='flex items-center justify-center mt-2 outline-none cursor-pointer w-20 h-10 rounded-3xl border-2 border-solid transition-all ease-in text-sm font-semibold text-[#606060] shadow-sm bg-button-gradient hover:shadow-custom-normal active:shadow-custom-active-focus focus:shadow-custom-active-focus'>
+            Više...
+          </button>
+        </Link>
+        </div>
       </div>
     </div>
   );

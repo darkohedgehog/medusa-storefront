@@ -73,7 +73,9 @@ const BestSellers = () => {
 
 
   return (
-    <Container className="mt-60">
+    <>
+    <h3 className='text-2xl ml-7 mt-20 text-left'>Najprodavaniji</h3>
+    <Container className="mt-10">
       <Slider {...settings}>
         {products.map((product) => (
           <div key={product.id} className='px-2' onClick={() => setSelectedProduct(product)}>
@@ -94,6 +96,7 @@ const BestSellers = () => {
       </Slider>
       <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </Container>
+    </>
   );
 };
 

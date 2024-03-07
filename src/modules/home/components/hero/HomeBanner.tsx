@@ -8,6 +8,7 @@ const HomeBanner = () => {
       alt="banner image" 
       width={1400}
       height={650}
+      priority={false}
       className="w-full max-h-[650px] object-cover mt-20 pt-20" />
     </div>
     

@@ -72,13 +72,6 @@ const NewArrival = () => {
   }, []);
   
   
-  
-
-  
-
- 
- 
-
   return (
     <Container className="-mt-60">
     <Slider {...settings}>
