@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface Product {
@@ -36,10 +37,22 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
         maxWidth: '500px',
         width: '100%',
       }}>
-        <h2>{product.title}</h2>
-        <img src={product.thumbnail} alt={product.title} style={{ width: '100%', maxHeight: '300px', objectFit: 'cover' }} />
+        <h2 
+           className='mb-2 mx-auto text-gray-400'>
+            {product.title}
+        </h2>
+        <Image 
+            src={product.thumbnail}
+            alt={product.title} 
+            style={{ width: '100%', maxHeight: '300px', objectFit: 'cover' }} 
+            width={500} 
+            height={200} />
         {product.description && <p>{product.description}</p>}
-        <button onClick={onClose} style={{ marginTop: '10px' }}>Zatvori</button>
+        <button 
+         onClick={onClose} 
+         className='flex items-center justify-center mt-2 outline-none cursor-pointer w-20 h-10 rounded-3xl border-2 border-solid transition-all ease-in text-sm font-semibold text-[#606060] shadow-sm bg-button-gradient hover:shadow-custom-normal active:shadow-custom-active-focus focus:shadow-custom-active-focus'>
+          Zatvori
+        </button>
       </div>
     </div>
   );

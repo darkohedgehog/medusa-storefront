@@ -1,7 +1,7 @@
 const path = require("path")
 
 module.exports = {
-  darkoMode: 'class',
+  darkMode: 'class',
   presets: [require("@medusajs/ui-preset")],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -19,6 +19,18 @@ module.exports = {
         display: "display opacity",
         visibility: "visibility",
         padding: "padding-top padding-right padding-bottom padding-left",
+      },
+      backgroundImage:{
+        'button-gradient': "linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%)",
+      },
+      boxShadow: {
+        'custom-normal': '0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1',
+        'custom-active-focus': '0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa',
+      },
+      variants: {
+        extend: {
+        boxShadow: ['hover', 'active', 'focus'],
+        },
       },
       colors: {
         grey: {
