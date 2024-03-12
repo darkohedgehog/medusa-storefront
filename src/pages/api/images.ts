@@ -20,7 +20,7 @@ export default async function handler(
 ) {
   try {
     const { resources } = await cloudinary.search
-      .expression('tags=hero') // Zameni 'your-tag' sa stvarnim tagom
+      .expression('tags=hero')
       .sort_by('public_id', 'desc')
       .max_results(30)
       .execute();
