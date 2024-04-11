@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
+import Head from 'next/head';
 
 
 export const Hero = () => {
@@ -130,22 +131,27 @@ export const Hero = () => {
 
 
   return (
-    <div>
-      <Slider {...settings}>
-      {images?.map((url, index) => (
-        <Link href={"/"} key={index}>
-        <Image
-         src={url} 
-         alt="Hero" 
-         width={2000} 
-         height={2000}
-         priority={true}
-         className="w-full max-h-[650px] object-cover" />
-         <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20" />
-       </Link>
-         
-      ))}
-      </Slider>
-    </div>
+    <>
+      <Head>
+        <link rel="preload" href={images[0]} as="image" />
+      </Head>
+      <div>
+        <Slider {...settings}>
+          {images?.map((url, index) => (
+            <Link href="/" key={index}>
+              <Image
+                src={url}
+                alt="Hero"
+                width={1920}
+                height={1080}
+                priority={index === 0}
+                className="w-full max-h-[650px] object-cover"
+              />
+              <div className="w-full h-40 bg-gradient-to-t from-gray-100 to-transparent absolute bottom-0 z-20" />
+            </Link>
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 };
