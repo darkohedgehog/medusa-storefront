@@ -52,7 +52,7 @@ const categories: CategoryItem[] = [
                        priority={false}
                        className='object-cover rounded-xl' />
                 <div 
-                   className="absolute bottom-0 bg-black bg-opacity-20 w-full text-white text-center py-2 rounded-xl">{category.name}
+                   className="absolute bottom-0 bg-black bg-opacity-20 w-full text-gray-100 text-center py-2 rounded-xl">{category.name}
                 </div>
               
             </Link>
