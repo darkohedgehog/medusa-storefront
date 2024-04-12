@@ -27,8 +27,9 @@ export default async function Nav() {
             >
               <Image src={logo}
                      alt="Logo"
-                      height={58} width={80}
-                      className="w-20"
+                      height={58} 
+                      width={80}
+                      className="w-auto h-auto"
                       priority={true} />
             </LocalizedClientLink>
           </div>
@@ -44,6 +45,11 @@ export default async function Nav() {
                   Pretraži
                 </LocalizedClientLink>
               )}
+              <LocalizedClientLink
+              className="hover:text-ui-fg-base"
+              href="/contact">
+                Kontakt
+              </LocalizedClientLink>
               <LocalizedClientLink
                 className="hover:text-ui-fg-base"
                 href="/account"
