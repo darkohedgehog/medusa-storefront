@@ -29,8 +29,8 @@ const HomeBanner: React.FC = () => {
     <div className="relative mt-48">
       <div className="absolute inset-0 flex items-center justify-center p-4">
         <div className="text-center banner-content">
-          <h1 className="text-4xl font-bold text-white mb-3">Najbolji Elektromaterijali na Dohvat Ruke</h1>
-          <p className="text-xl text-gray-300">
+          <h1 className="text-4xl font-bold text-gray-200 mb-3 uppercase">Najbolji elektromaterijal na dohvat ruke</h1>
+          <p className="text-xl text-gray-100">
             Sve što vam treba za profesionalne ili kućne elektroinstalacije.
           </p>
         </div>

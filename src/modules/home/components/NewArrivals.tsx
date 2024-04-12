@@ -76,7 +76,7 @@ const NewArrival = () => {
     <Container className="-mt-60">
     <Slider {...settings}>
       {products?.map((product) => (
-        <div key={product.id} className='px-2'>
+        <div key={product.id} className='px-4'>
           <div className='rounded-xl overflow-hidden shadow-lg'>
           <Image src={product.thumbnail as string}
                alt={product.title}
@@ -86,7 +86,7 @@ const NewArrival = () => {
                priority={true}
                />
             <div className='px-6 py-4 min-h-[6rem]'>
-              <div className='font-semibold text-md mb-4 mx-auto'>{product.title}</div>
+              <div className='font-semibold text-md mb-4 mx-auto flex justify-center items-center'>{product.title}</div>
              
             </div>
           </div>
