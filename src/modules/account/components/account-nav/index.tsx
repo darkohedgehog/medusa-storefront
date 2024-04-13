@@ -12,17 +12,23 @@ import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
+interface RouteParams {
+  [key: string]: string | string[];
+}
+
 const AccountNav = ({
   customer,
 }: {
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   const route = usePathname()
-  const { countryCode } = useParams()
+  const params = useParams<RouteParams>();
+  const countryCode = params ? params.countryCode : "default"; // Handle null safely
 
   const handleLogout = async () => {
     await signOut()
   }
+
 
   return (
     <div>
@@ -34,13 +40,13 @@ const AccountNav = ({
           >
             <>
               <ChevronDown className="transform rotate-90" />
-              <span>Account</span>
+              <span>Nalog</span>
             </>
           </LocalizedClientLink>
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+              Pozdrav {customer?.first_name}
             </div>
             <div className="text-base-regular">
               <ul>
@@ -52,7 +58,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <User size={20} />
-                        <span>Profile</span>
+                        <span>Profil</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -66,7 +72,7 @@ const AccountNav = ({
                     <>
                       <div className="flex items-center gap-x-2">
                         <MapPin size={20} />
-                        <span>Addresses</span>
+                        <span>Adrese</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -79,7 +85,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
-                      <span>Orders</span>
+                      <span>Narudžbe</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -92,7 +98,7 @@ const AccountNav = ({
                   >
                     <div className="flex items-center gap-x-2">
                       <ArrowRightOnRectangle />
-                      <span>Log out</span>
+                      <span>Odjavi se</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </button>
@@ -105,33 +111,33 @@ const AccountNav = ({
       <div className="hidden small:block">
         <div>
           <div className="pb-4">
-            <h3 className="text-base-semi">Account</h3>
+            <h3 className="text-base-semi">Nalog</h3>
           </div>
           <div className="text-base-regular">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
               <li>
                 <AccountNavLink href="/account" route={route!}>
-                  Overview
+                  Pregled
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink href="/account/profile" route={route!}>
-                  Profile
+                  Profil
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink href="/account/addresses" route={route!}>
-                  Addresses
+                  Adrese
                 </AccountNavLink>
               </li>
               <li>
                 <AccountNavLink href="/account/orders" route={route!}>
-                  Orders
+                  Narudžbe
                 </AccountNavLink>
               </li>
               <li className="text-grey-700">
                 <button type="button" onClick={handleLogout}>
-                  Log out
+                  Odjavi se
                 </button>
               </li>
             </ul>
@@ -143,15 +149,20 @@ const AccountNav = ({
 }
 
 type AccountNavLinkProps = {
-  href: string
-  route: string
-  children: React.ReactNode
-}
+  href: string;
+  route: string;
+  children: React.ReactNode;
+};
 
 const AccountNavLink = ({ href, route, children }: AccountNavLinkProps) => {
-  const { countryCode }: { countryCode: string } = useParams()
+  const params = useParams<RouteParams>();
+  
+  // Handling the potential array case or asserting the type
+  const countryCode = params ? (Array.isArray(params.countryCode) ? params.countryCode[0] : params.countryCode) : "default";
 
-  const active = route.split(countryCode)[1] === href
+  // Use the resolved single countryCode for operations
+  const active = route.split(countryCode)[1] === href;
+
   return (
     <LocalizedClientLink
       href={href}
@@ -163,5 +174,6 @@ const AccountNavLink = ({ href, route, children }: AccountNavLinkProps) => {
     </LocalizedClientLink>
   )
 }
+
 
 export default AccountNav
