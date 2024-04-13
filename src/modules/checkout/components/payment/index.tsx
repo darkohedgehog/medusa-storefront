@@ -26,7 +26,7 @@ const Payment = ({
   const [cardBrand, setCardBrand] = useState<string | null>(null)
   const [cardComplete, setCardComplete] = useState(false)
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams() || new URLSearchParams();
   const router = useRouter()
   const pathname = usePathname()
 

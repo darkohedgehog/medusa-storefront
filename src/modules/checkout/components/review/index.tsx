@@ -11,7 +11,7 @@ const Review = ({
 }: {
   cart: Omit<Cart, "refundable_amount" | "refunded_total">
 }) => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams() || new URLSearchParams();
 
   const isOpen = searchParams.get("step") === "review"
 

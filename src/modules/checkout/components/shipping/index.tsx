@@ -27,7 +27,7 @@ const Shipping: React.FC<ShippingProps> = ({
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams() || new URLSearchParams();
   const router = useRouter()
   const pathname = usePathname()
 

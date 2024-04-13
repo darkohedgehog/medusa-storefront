@@ -28,12 +28,12 @@ const Addresses = ({
   cart: Omit<Cart, "refundable_amount" | "refunded_total"> | null
   customer: Omit<Customer, "password_hash"> | null
 }) => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams() || new URLSearchParams();
   const router = useRouter()
   const pathname = usePathname()
-  const params = useParams()
+  const params = useParams() || {};
+  const countryCode = (params.countryCode as string | undefined) ?? "defaultCountryCode";
 
-  const countryCode = params.countryCode as string
 
   const isOpen = searchParams.get("step") === "address"
 
