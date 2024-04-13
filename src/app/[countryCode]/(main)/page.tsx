@@ -1,16 +1,17 @@
 import { Product } from "@medusajs/medusa"
 import { Metadata } from "next"
-
+import dynamic from "next/dynamic"
 import { getCollectionsList, getProductsList } from "@lib/data"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import { getRegion } from "app/actions"
 import { ProductCollectionWithPreviews } from "types/global"
-import { Hero } from "@modules/home/components/hero"
-import NewArrival from "@modules/home/components/NewArrivals"
-import InfoBanner from "@modules/home/components/InfoBanner"
-import BestSellers from "@modules/home/components/BestSellers"
-import HomeBanner from "@modules/home/components/hero/HomeBanner"
-import CategoryBanner from "@modules/home/components/CategoryBanner"
+const Hero = dynamic(() => import('@modules/home/components/hero'), { ssr: true });
+const NewArrival = dynamic(() => import("@modules/home/components/NewArrivals"), { ssr: false });
+const InfoBanner = dynamic(() => import("@modules/home/components/InfoBanner"), { ssr: false });
+const BestSellers = dynamic(() => import("@modules/home/components/BestSellers"), { ssr: false });
+const HomeBanner = dynamic(() => import("@modules/home/components/HomeBanner"), { ssr: false });
+const CategoryBanner = dynamic(() => import("@modules/home/components/CategoryBanner"), { ssr: false });
+
 
 
 
@@ -82,11 +83,11 @@ export default async function Home({
       <HomeBanner />
       <CategoryBanner />
       <BestSellers />
-      <div className="py-12">
+      {<div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
-      </div>
+      </div>}
     </>
   )
 }

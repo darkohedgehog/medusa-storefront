@@ -29,7 +29,7 @@ const HomeBanner: React.FC = () => {
     <div className="relative mt-48">
       <div className="absolute inset-0 flex items-center justify-center p-4">
         <div className="text-center banner-content">
-          <h1 className="text-4xl font-bold text-gray-200 mb-3 uppercase">Najbolji elektromaterijal na dohvat ruke</h1>
+          <h1 className="text-4xl font-bold text-gray-100 mb-3 uppercase">Najbolji elektromaterijal na dohvat ruke</h1>
           <p className="text-xl text-gray-100">
             Sve što vam treba za profesionalne ili kućne elektroinstalacije.
           </p>
@@ -39,7 +39,7 @@ const HomeBanner: React.FC = () => {
       width={1920}
       height={1080}
       src={images[currentImage]}
-      className="w-full h-[800px] object-cover object-center transition-opacity duration-1000 ease-linear" 
+      className="w-full h-[700px] object-cover object-center transition-opacity duration-1000 ease-linear" 
       alt="Elektromaterijali"
        />
     </div>

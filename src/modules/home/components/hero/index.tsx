@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import Head from 'next/head';
 
 
-export const Hero = () => {
+export default function Hero ()  {
   const [images, setImages] = useState<string[]>([]); // Inicijalizacija kao prazan niz
 
   useEffect(() => {
