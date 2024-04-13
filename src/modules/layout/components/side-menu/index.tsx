@@ -11,6 +11,7 @@ import CountrySelect from "../country-select"
 
 const SideMenuItems = {
   Naslovna: "/",
+  O_nama: "/about",
   Trgovina: "/store",
   Pretraži: "/search",
   Nalog: "/account",

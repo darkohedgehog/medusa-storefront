@@ -41,6 +41,7 @@ const HomeBanner: React.FC = () => {
       src={images[currentImage]}
       className="w-full h-[700px] object-cover object-center transition-opacity duration-1000 ease-linear" 
       alt="Elektromaterijali"
+      priority = {true}
        />
     </div>
   );

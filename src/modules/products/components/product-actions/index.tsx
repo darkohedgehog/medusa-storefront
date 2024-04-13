@@ -34,7 +34,8 @@ export default function ProductActions({
   const [options, setOptions] = useState<Record<string, string>>({})
   const [isAdding, setIsAdding] = useState(false)
 
-  const countryCode = useParams().countryCode as string
+  const params = useParams() || {};
+  const countryCode = 'countryCode' in params ? params['countryCode'] as string : 'defaultCountryCode'; // Provera postojanja
 
   const variants = product.variants
 
