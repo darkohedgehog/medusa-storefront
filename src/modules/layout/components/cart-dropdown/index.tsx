@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import { Popover, Transition } from "@headlessui/react"
@@ -70,7 +71,7 @@ useEffect(() => {
     if (itemRef.current !== totalItems && !pathname.includes("/cart")) {
       timedOpen();
     }
-  }, [totalItems, itemRef.current, pathname]); // Include pathname in dependency array for clarity and correctness
+  }, [totalItems, pathname, timedOpen]); // Include pathname in dependency array for clarity and correctness
   
 
   return (

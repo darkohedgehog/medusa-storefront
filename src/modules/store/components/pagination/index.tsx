@@ -12,7 +12,7 @@ export function Pagination({
 }) {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams() || new URLSearchParams();
 
   // Helper function to generate an array of numbers within a range
   const arrayRange = (start: number, stop: number) =>

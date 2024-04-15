@@ -17,13 +17,13 @@ const RefinementList = ({ sortBy }: RefinementListProps) => {
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams)
-      params.set(name, value)
-
-      return params.toString()
+      const params = searchParams? new URLSearchParams(searchParams) : new URLSearchParams();
+      params.set(name, value);
+  
+      return params.toString();
     },
     [searchParams]
-  )
+  );
 
   const setQueryParams = (name: string, value: string) => {
     const query = createQueryString(name, value)

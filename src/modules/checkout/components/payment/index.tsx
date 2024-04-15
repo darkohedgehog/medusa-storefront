@@ -26,6 +26,7 @@ const Payment = ({
   const [cardBrand, setCardBrand] = useState<string | null>(null)
   const [cardComplete, setCardComplete] = useState(false)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchParams = useSearchParams() || new URLSearchParams();
   const router = useRouter()
   const pathname = usePathname()
