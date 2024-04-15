@@ -1,4 +1,4 @@
-"use server"
+
 import { SEARCH_INDEX_NAME } from '@lib/search-client';
 import { MeiliSearch } from 'meilisearch';
 
